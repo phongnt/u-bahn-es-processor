@@ -19,6 +19,9 @@ module.exports = {
   UBAHN_DELETE_TOPIC: process.env.UBAHN_DELETE_TOPIC || 'u-bahn.action.delete',
   UBAHN_AGGREGATE_TOPIC: process.env.UBAHN_AGGREGATE_TOPIC || 'u-bahn.action.aggregate',
 
+  GROUPS_NOTIFICATION_MEMBER_ADD_TOPIC: process.env.GROUPS_NOTIFICATION_MEMBER_ADD_TOPIC || 'groups.notification.member.add',
+  GROUPS_NOTIFICATION_MEMBER_DELETE_TOPIC: process.env.GROUPS_NOTIFICATION_MEMBER_DELETE_TOPIC || 'groups.notification.member.delete',
+
   ES: {
     HOST: process.env.ES_HOST || 'localhost:9200',
     AWS_REGION: process.env.AWS_REGION || 'us-east-1', // AWS Region to be used if we use AWS ES
@@ -45,6 +48,7 @@ module.exports = {
     USER_ATTRIBUTE_PROPERTY_NAME: process.env.USER_ATTRIBUTE_PROPERTY_NAME || 'attributes',
     USER_ROLE_PROPERTY_NAME: process.env.USER_ROLE_PROPERTY_NAME || 'roles',
     USER_SKILL_PROPERTY_NAME: process.env.USER_SKILL_PROPERTY_NAME || 'skills',
+    USER_GROUP_PROPERTY_NAME: process.env.USER_GROUP_PROPERTY_NAME || 'groups',
 
     ORGANIZATION_SKILLPROVIDER_PROPERTY_NAME: process.env.ORGANIZATION_SKILLPROVIDER_PROPERTY_NAME || 'skillProviders'
   }

@@ -2,14 +2,14 @@
 
 **NOTE** - For all kafka message below, update the topic to be the one set in config.UBAHN_AGGREGATE_TOPIC and inside the payload object, create a new attribute named `originalTopic` with the value of the original topic. Example:
 
-```
+```json
 {
   "topic": "u-bahn.action.aggregate",
   "originator": "u-bahn-api",
   "timestamp": "2019-07-08T00:00:00.000Z",
   "mime-type": "application/json",
   "payload": {
-    "originalTopic": "u-bahn.action.create"
+    "originalTopic": "u-bahn.action.create",
     "resource": "user",
     "id": "391a3656-9a01-47d4-8c6d-64b68c44f212",
     "handle": "user"
@@ -19,7 +19,7 @@
 
 Additionally, you will be entering the messages into only one topic:
 
-```
+```bash
 docker exec -it ubahn-data-processor-es_kafka /opt/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic u-bahn.action.aggregate
 ```
 
@@ -211,3 +211,7 @@ topic:
   `{"topic":"u-bahn.action.delete","originator":"u-bahn-api","timestamp":"2019-07-08T00:00:00.000Z","mime-type":"application/json","payload":{"resource":"user","id":"391a3656-9a01-47d4-8c6d-64b68c44f212"}}`
 109. Watch the app console, It will show message successfully handled.
 110. Run Command `npm run view-data user 391a3656-9a01-47d4-8c6d-64b68c44f212` to verify the elastic data has been deleted.
+
+`{"topic":"groups.notification.member.add","originator":"u-bahn-api","timestamp":"2019-07-08T00:00:00.000Z","mime-type":"application/json","payload":{"id":"c2f302cf-759a-4847-8acd-843e258359db","groupId":"036cc9c1-189a-4cf6-853b-0f5bc9b4ce75","oldId":"20000309","name":"House Stark","createdAt":"2020-09-11T13:14:54.108Z","createdBy":"8547899","universalUID":"391a3656-9a01-47d4-8c6d-64b68c44f212","membershipType":"user"}}`
+
+`{"topic":"groups.notification.member.delete","originator":"u-bahn-api","timestamp":"2019-07-08T00:00:00.000Z","mime-type":"application/json","payload":{"groupId":"036cc9c1-189a-4cf6-853b-0f5bc9b4ce75","oldId":"20000309","name":"House Stark","memberId":"00000000","universalUID":"391a3656-9a01-47d4-8c6d-64b68c44f212","membershipType":"user"}}`

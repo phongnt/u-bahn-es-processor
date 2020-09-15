@@ -67,6 +67,11 @@ const userResources = {
     propertyName: config.get('ES.USER_SKILL_PROPERTY_NAME'),
     relateKey: 'skillId',
     validate: payload => validProperties(payload, ['userId', 'skillId'])
+  },
+  group: {
+    propertyName: config.get('ES.USER_GROUP_PROPERTY_NAME'),
+    relateKey: 'groupId',
+    validate: payload => validProperties(payload, ['groupId', 'universalUID'])
   }
 }
 
